@@ -1,7 +1,6 @@
 use std::{
     cmp::{max, max_by_key, min_by_key},
     fmt::Debug,
-    usize,
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -30,7 +29,7 @@ pub fn sublist<T: PartialEq + Debug>(first_list: &[T], second_list: &[T]) -> Com
         longest_subsequence = max(longest_subsequence, subsequence);
     }
 
-    return get_comparison(first_list.len(), second_list.len(), longest_subsequence);
+    get_comparison(first_list.len(), second_list.len(), longest_subsequence)
 }
 
 fn get_comparison(
