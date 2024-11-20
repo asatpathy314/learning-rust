@@ -14,7 +14,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String> {
     for (row_ind, row) in board.iter().enumerate() {
         for (col_ind, value) in row.iter().enumerate() {
             if *value == -1 {
-                update_values(board, row_ind, col_ind);
+                update_values(&board, row_ind, col_ind);
             }
         }
     }
@@ -22,6 +22,6 @@ pub fn annotate(minefield: &[&str]) -> Vec<String> {
     Vec::with_capacity(10)
 }
 
-fn update_values(board: Vec<Vec<i32>>, row: usize, col: usize) -> () {
+fn update_values(board: &Vec<Vec<i32>>, row: usize, col: usize) -> () {
     
 }
