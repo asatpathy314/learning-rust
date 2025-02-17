@@ -1,27 +1,14 @@
 pub fn annotate(minefield: &[&str]) -> Vec<String> {
-    let size = minefield.len();
-    let mut board: Vec<Vec<i32>> = vec![vec![0; size]; size];
-
-    for (i, &str) in minefield.iter().enumerate() {
-        let str_bytes = str.as_bytes();
-        for (j, char) in str_bytes.iter().enumerate() {
-            if *char == b'*' {
-                board[i][j] = -1;
-            }
+    let mut minefield_flattened: Vec<u8> = Vec::new();
+    for row in minefield.iter() {
+        for char in row.as_bytes() {
+            minefield_flattened.push(*char)
         }
     }
-
-    for (row_ind, row) in board.iter().enumerate() {
-        for (col_ind, value) in row.iter().enumerate() {
-            if *value == -1 {
-                update_values(&board, row_ind, col_ind);
-            }
-        }
-    }
-
-    Vec::with_capacity(10)
+    println!("{:?}", minefield_flattened);
+    Vec::new()
 }
 
-fn update_values(board: &Vec<Vec<i32>>, row: usize, col: usize) -> () {
-    
+pub fn main() {
+    annotate(&[" * ", "   ", " * "]);
 }
